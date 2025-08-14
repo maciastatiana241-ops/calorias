@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlador de Calorías</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="img/logo.png" alt="Logo Controlador de Calorías" class="logo">
+            <h1>Controlador de Calorías</h1>
+        </header>
+
+        <div id="userForm" class="form-container">
+            <h2>Crear nueva ficha</h2>
+            <form id="calorieForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" required>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <select id="genero" required>  <!-- Cambiado de "genero" a "genero" -->
+    <option value="">Seleccione...</option>
+    <option value="masculino">Masculino</option>
+    <option value="femenino">Femenino</option>
+    <option value="otro">Otro</option>
+</select>
+                </div>
+                <div class="form-group">
+                    <label for="calorias">Calorías diarias:</label>
+                    <input type="number" id="calorias" min="500" max="5000" required>
+                    <small id="caloriasHelp">(Mínimo recomendado: 1500 - Máximo recomendado: 3500)</small>
+                </div>
+                <button type="submit" class="btn">Crear Ficha</button>
+            </form>
+        </div>
+
+        <div id="cardsContainer" class="cards-container">
+            <h2>Tus fichas</h2>
+            <div id="cardsList" class="cards-list"></div>
+        </div>
+    </div>
+
+    <div id="cardDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Detalle de Ficha</h2>
+            <div class="calorie-info">
+                <p>Calorías disponibles: <span id="remainingCalories">0</span></p>
+                <div class="progress-container">
+                    <div id="calorieProgress" class="progress-bar"></div>
+                </div>
+            </div>
+            <div class="subtract-form">
+                <label for="subtractAmount">Restar calorías:</label>
+                <input type="number" id="subtractAmount" min="1">
+                <button id="subtractBtn" class="btn">Restar</button>
+            </div>
+            <button id="saveBtn" class="btn save-btn">Guardar Cambios</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
